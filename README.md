@@ -1,2 +1,2 @@
 # Spotify-Weather-Playlist-Generator
-a spotify playlist that is generated from the weather
+A spotify playlist that is generated using the current weather information.
