@@ -1,5 +1,5 @@
 import json
-# import requests
+import requests
 import os
 
 from track import Track
@@ -31,15 +31,6 @@ class spotifyClient:
         playlist = Playlist(name, playlist_id)
         return playlist
 
-    def _place_post_api_request(self, url, data):
-        response = response.post(
-            url,
-            data = data,
-            headers = {
-                "Content-Type": "application/json",
-                "Authorization": "Bearer {self.authorization_token}"
-            }
-        )
     def add_songs(self, playlist, tracks):
         # playlist (string): the name of the playlist to add songs into
         # tracks (string): all the songs to add into the playlist
@@ -50,12 +41,26 @@ class spotifyClient:
         response_json = response.json()
         return response_json
 
+    def _place_post_api_request(self, url, data):
+        response = requests.post(
+            url,
+            data = data,
+            headers = {
+                "Content-Type": "application/json",
+                "Authorization": "Bearer {self.authorization_token}"
+            }
+        )
+        return response
+
 def main():
     spotify_client = spotifyClient(os.getenv("SPOTIFY_AUTHORIZATION_TOKEN"),
                                     os.getenv("SPOTIFY_USER_ID"))
     tracks = spotify_client.get_tracks('60637_tracks.json')
-    for index, track in enumerate(tracks):
-        print(f"{index+1} - {track}")
+    
+    playlist_name = "Weather Based Playlist"
+    playlist = spotify_client.create_playlist(playlist_name)
+    
+    spotify_client.add_songs(playlist, tracks)
 
 if __name__ == '__main__':
     main()
