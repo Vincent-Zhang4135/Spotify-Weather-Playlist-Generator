@@ -8,7 +8,7 @@ class Track:
         self.artist = artist
     
     def create_spotify_uri(self):
-        return "spotify:track:{self:id}"
-
+        return f"spotify:track:{self:id}"
+        
     def __str__(self):
-        return "{self.name}"
+        return f"{self.name}"

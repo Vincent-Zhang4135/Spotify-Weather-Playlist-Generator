@@ -23,7 +23,7 @@ class spotifyClient:
             "description": "playlist based on the forecast"
         })
         user_id = self.user_id
-        url = "https://api.spotify.com/v1/users/{user_id}/playlists"
+        url = f"https://api.spotify.com/v1/users/{user_id}/playlists"
         response = self._place_post_api_request(url, data)
         response_json = response.json()
 
@@ -45,7 +45,7 @@ class spotifyClient:
         # tracks (string): all the songs to add into the playlist
         tracks_uri = [track.create_spotify_uri() for track in tracks]
         data = json.dumps(tracks_uri)
-        url = "https://api.spotify.com/v1/users/{playlist.id}/tracks"
+        url = f"https://api.spotify.com/v1/users/{playlist.id}/tracks"
         response = self._place_post_api_request(url, data)
         response_json = response.json()
         return response_json
@@ -55,7 +55,7 @@ def main():
                                     os.getenv("SPOTIFY_USER_ID"))
     tracks = spotify_client.get_tracks('clear_sky_tracks.json')
     for index, track in enumerate(tracks):
-        print((index+1) - track)
+        print(f"{index+1} - {track}")
 
 if __name__ == '__main__':
     main()
