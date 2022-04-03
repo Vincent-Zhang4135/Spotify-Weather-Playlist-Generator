@@ -21,7 +21,7 @@ class spotifyClient:
 def main():
     spotify_client = spotifyClient(os.getenv("SPOTIFY_AUTHORIZATION_TOKEN"),
                                     os.getenv("SPOTIFY_USER_ID"))
-    tracks = spotify_client.get_tracks('60637_tracks.json')
+    tracks = spotify_client.get_tracks('jsons/60637_tracks.json')
 
     '''name of playlist being made'''
     playlist_name = "Weather Based Playlist"
