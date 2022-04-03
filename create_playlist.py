@@ -3,6 +3,7 @@ import os
 import sys
 import spotipy
 import spotipy.util as util
+from spotipy.oauth2 import SpotifyClientCredentials
 
 from track import Track
 
@@ -21,7 +22,7 @@ class spotifyClient:
 def main():
     spotify_client = spotifyClient(os.getenv("SPOTIFY_AUTHORIZATION_TOKEN"),
                                     os.getenv("SPOTIFY_USER_ID"))
-    tracks = spotify_client.get_tracks('jsons/60637_tracks.json')
+    tracks = spotify_client.get_tracks('jsons/02108_tracks.json')
 
     '''name of playlist being made'''
     playlist_name = "Weather Based Playlist"
@@ -38,11 +39,12 @@ def main():
     token = util.prompt_for_user_token(
         username, 
         scope, 
-        client_id = 'eaa884bf4e774482af2e0aaffeaec2fa',
-        client_secret='22cb937a4eba49d283cd9dec5241a13d',
-        redirect_uri='http://127.0.0.1:5500/templates/index.html') 
-
-    sp = spotipy.Spotify(auth=token)
+        client_id = '0ed034a78f744265a8b997557ebd7d36',
+        client_secret='2dc8b0b2064b493fb96720557c44afd1',
+        redirect_uri='http://127.0.0.1:5501/templates/index.html')
+         
+    auth_manager = SpotifyClientCredentials()
+    sp = spotipy.Spotify(auth_manager=auth_manager)
     sp.user_playlist_create(username, playlist_name)
 
     ''' Get playlist ID given playlist name'''
