@@ -52,6 +52,7 @@ def read_into_json(tracks, weather_description):
     fp.write(tracks_json)
     fp.close()
 
+"""
 if __name__ == '__main__':
     clear_sky = weather_description_similar_words.weather_description_to_words("sky")
     dark_clouds = weather_description_similar_words.weather_description_to_words("dark clouds")
@@ -60,3 +61,4 @@ if __name__ == '__main__':
     
     read_into_json(snowy_tracks, 'clear_sky')
     read_into_json(dark_tracks, 'dark_clouds')
+"""

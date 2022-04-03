@@ -1,6 +1,5 @@
 from urllib.request import urlopen
 import json
-import random
 
 # parses our json words into just the word part of the json word
 def parse_json(json_words):
@@ -25,6 +24,9 @@ def weather_description_to_words(weather_description):
         words += parse_json(json_words)[:5]
     return words
 
+"""
 if __name__ == '__main__':
     # print(weather_description_to_words("clear sky"))
-    print(weather_description_to_words("wonder"))
+    # print(weather_description_to_words("wonder"))
+    print(weather.find_descrip("Chicago"))
+"""
