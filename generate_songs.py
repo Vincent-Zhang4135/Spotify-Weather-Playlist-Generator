@@ -12,7 +12,7 @@ def generate_songs(zip):
     
     # then, we want to use these keywords and generate songs using the search api from spotify
     tracks = create_tracks_with_keywords(keywords, 10)
-    read_into_json(tracks, zip)
+    read_into_json(tracks, 'songs')
     
 generate_songs('60637')
-generate_songs('85043')
+# generate_songs('85043')
