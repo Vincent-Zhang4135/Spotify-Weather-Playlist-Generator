@@ -38,9 +38,9 @@ def main():
     token = util.prompt_for_user_token(
         username, 
         scope, 
-        client_id = 'b5c82c819eb94cbf9728d7be2d648760',
-        client_secret='4445d38c80e54fd2a2a97a94b4df5ec0',
-        redirect_uri='http://127.0.0.1:5501/index.html') 
+        client_id = 'eaa884bf4e774482af2e0aaffeaec2fa',
+        client_secret='22cb937a4eba49d283cd9dec5241a13d',
+        redirect_uri='http://127.0.0.1:5500/templates/index.html') 
 
     sp = spotipy.Spotify(auth=token)
     sp.user_playlist_create(username, playlist_name)
