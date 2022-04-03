@@ -14,7 +14,7 @@ class spotifyClient:
         # tracks (json file) = the songs being put into the playlists
         f = open(tracks)
         data = json.load(f)
-        songs = [Track(track["track"]["track_name"], track["track"]["id"], track["track"]["artist_name"]) for track in data]
+        songs = [Track(track["track_name"], track["id"], track["artist_name"]) for track in data.values()]
         return songs
     
     def create_playlist(self, name): # maybe pass a parameter for date created
@@ -53,7 +53,7 @@ class spotifyClient:
 def main():
     spotify_client = spotifyClient(os.getenv("SPOTIFY_AUTHORIZATION_TOKEN"),
                                     os.getenv("SPOTIFY_USER_ID"))
-    tracks = spotify_client.get_tracks('clear_sky_tracks.json')
+    tracks = spotify_client.get_tracks('60637_tracks.json')
     for index, track in enumerate(tracks):
         print(f"{index+1} - {track}")
 
