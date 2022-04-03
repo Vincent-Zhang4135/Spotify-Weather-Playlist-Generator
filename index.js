@@ -1,27 +1,51 @@
-songs = ["1", "2", "3", "4", "5"];
+/*songs = ["1", "2", "3", "4", "5"];
 song = {
     "5s8a3reYfth5IIqIJMtx40": {
         id: "5s8a3reYfth5IIqIJMtx40",
         artist_name: "Rod Wave",
         track_name: "Dark Clouds",
     },
+};*/
+
+function generate_songs() {
+    $.ajax({
+        url: "generate_songs.py",
+        context: document.body,
+    }).done(function () {
+        alert("finished python script");
+    });
+}
+
+String.format = function () {
+    var s = arguments[0];
+    for (var i = 0; i < arguments.length - 1; i += 1) {
+        var reg = new RegExp("\\{" + i + "\\}", "gm");
+        s = s.replace(reg, arguments[i + 1]);
+    }
+    return s;
 };
 
 async function parse_songs() {
-    fetch("./songs_tracks.json").then((response) => {
-        return response.json();
-    });
-    //.then((jsondata) => console.log(jsondata));
+    let promise = await fetch("./songs_tracks.json");
+    response = await promise.json();
+
+    return response;
 }
 
 function format_songs(songs) {
     // get all keys of the object
+    const song_list = [];
     const keys = Object.keys(songs);
 
     // getting value of the keys in array
     for (let i = 0; i < keys.length; i++) {
-        console.log(person[keys[i]]);
+        const { id, artist_name, track_name } = songs[keys[i]];
+        song_name = String.format("{0} - {1}", artist_name, track_name);
+
+        song_list.push(song_name);
     }
+    console.log(song_list);
+    return song_list;
 }
 
 function remove_old_songs() {
@@ -32,11 +56,11 @@ function remove_old_songs() {
     });
 }
 
-function create_songs(songs) {
+function create_songs(songs_list) {
     const list_el = document.querySelector("#songs");
 
-    for (let i = 0; i < songs.length; i++) {
-        var song = "test";
+    for (let i = 0; i < songs_list.length; i++) {
+        var song = songs_list[i];
         var song_el = document.createElement("div");
         song_el.classList.add("song");
 
@@ -49,7 +73,7 @@ function create_songs(songs) {
         song_input_el.classList.add("text");
         song_input_el.type = "text";
         song_input_el.value = song;
-        //song_input_el.setAttribute("readonly", "readonly");
+        song_input_el.setAttribute("readonly", "readonly");
 
         song_content_el.appendChild(song_input_el);
 
@@ -62,13 +86,15 @@ window.addEventListener("load", () => {
     const input = document.querySelector("#new-zip-input");
     // const list_el = document.querySelector("#songs");
 
-    form.addEventListener("submit", (e) => {
+    form.addEventListener("submit", async (e) => {
         e.preventDefault();
-        // songs = parse_songs();
+        generate_songs();
+        songs = await parse_songs();
+        // console.log("testing");
         // console.log(songs);
-        // format_songs(songs);
+        songs_list = format_songs(songs);
         remove_old_songs();
-        create_songs(songs);
+        create_songs(songs_list);
         input.value = "";
     });
 });
