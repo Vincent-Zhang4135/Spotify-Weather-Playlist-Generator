@@ -7,9 +7,11 @@ song = {
     },
 };*/
 
-function generate_songs() {
+// DOES NOT FUCKING WORK!!!
+function generate_songs(zip) {
     $.ajax({
-        url: "generate_songs.py",
+        type: "POST",
+        url: String.format("../generate_songs{0}", ""),
         context: document.body,
     }).done(function () {
         alert("finished python script");
@@ -25,8 +27,8 @@ String.format = function () {
     return s;
 };
 
-async function parse_songs() {
-    let promise = await fetch("./songs_tracks.json");
+async function parse_songs(zip) {
+    let promise = await fetch(String.format("../jsons/{0}_tracks.json", zip));
     response = await promise.json();
 
     return response;
@@ -88,8 +90,8 @@ window.addEventListener("load", () => {
 
     form.addEventListener("submit", async (e) => {
         e.preventDefault();
-        generate_songs();
-        songs = await parse_songs();
+        // generate_songs(input.value);
+        songs = await parse_songs(input.value);
         // console.log("testing");
         // console.log(songs);
         songs_list = format_songs(songs);

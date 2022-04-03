@@ -48,7 +48,7 @@ def create_tracks_with_keywords(keywords, lim):
 # write our tracks into a json file
 def read_into_json(tracks, weather_description):
     tracks_json = json.dumps(tracks)
-    fp = open(f'{weather_description}_tracks.json', 'w')
+    fp = open(f'jsons/{weather_description}_tracks.json', 'w')
     fp.write(tracks_json)
     fp.close()
 

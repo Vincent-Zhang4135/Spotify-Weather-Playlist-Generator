@@ -13,8 +13,10 @@ def parse_json(json_words):
 # and returns a list of all these words
 def weather_description_to_words(weather_description):
     weather_phrase = []
-    weather_phrase.append(weather_description.replace(' ', '+'))
-    
+    if weather_description:
+        weather_phrase.append(weather_description.replace(' ', '+'))
+    else:
+        return []
     weather_words = weather_description.split(' ')
     words = [] + weather_words
     for word in weather_phrase:
