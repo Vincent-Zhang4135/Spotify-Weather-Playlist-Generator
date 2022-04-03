@@ -22,18 +22,18 @@ class spotifyClient:
 def main():
     spotify_client = spotifyClient(os.getenv("SPOTIFY_AUTHORIZATION_TOKEN"),
                                     os.getenv("SPOTIFY_USER_ID"))
-    tracks = spotify_client.get_tracks('jsons/02108_tracks.json')
 
     '''name of playlist being made'''
     playlist_name = "Weather Based Playlist"
 
     '''authentification for spotify'''
-    if len(sys.argv) > 1:
+    if len(sys.argv) > 2:
         username = sys.argv[1]
+        zip = sys.argv[2]
     else:
-        print("Usage: %s username" % (sys.argv[0],))
+        print("not enough parameters")
         sys.exit()
-
+    tracks = spotify_client.get_tracks(f'jsons/{zip}_tracks.json')
     scope = 'playlist-modify-public playlist-read-private playlist-read-collaborative playlist-modify-private'
 
     token = util.prompt_for_user_token(
