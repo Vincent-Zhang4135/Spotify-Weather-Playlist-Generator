@@ -1,5 +1,5 @@
 import json
-import requests
+# import requests
 import os
 
 from track import Track
@@ -11,10 +11,10 @@ class spotifyClient:
         self.user_id = user_id
 
     def get_tracks(self, tracks):
-        # tracks (json file) = the songs being put into the playlsit
-        with open('persons.json') as f:
-            data = tracks.load(f)
-        songs = [Track(track["track_name"], track["id"], track["artist_name"]) for track in data]
+        # tracks (json file) = the songs being put into the playlists
+        f = open(tracks)
+        data = json.load(f)
+        songs = [Track(track["track"]["track_name"], track["track"]["id"], track["track"]["artist_name"]) for track in data]
         return songs
     
     def create_playlist(self, name): # maybe pass a parameter for date created
@@ -22,7 +22,8 @@ class spotifyClient:
             "name": name,
             "description": "playlist based on the forecast"
         })
-        url = f"https://api.spotify.com/v1/users/{self.user_id}/playlists"
+        user_id = self.user_id
+        url = "https://api.spotify.com/v1/users/{user_id}/playlists"
         response = self._place_post_api_request(url, data)
         response_json = response.json()
 
@@ -36,7 +37,7 @@ class spotifyClient:
             data = data,
             headers = {
                 "Content-Type": "application/json",
-                "Authorization": f"Bearer {self.authorization_token}"
+                "Authorization": "Bearer {self.authorization_token}"
             }
         )
     def add_songs(self, playlist, tracks):
@@ -44,7 +45,7 @@ class spotifyClient:
         # tracks (string): all the songs to add into the playlist
         tracks_uri = [track.create_spotify_uri() for track in tracks]
         data = json.dumps(tracks_uri)
-        url = f"https://api.spotify.com/v1/users/{playlist.id}/tracks"
+        url = "https://api.spotify.com/v1/users/{playlist.id}/tracks"
         response = self._place_post_api_request(url, data)
         response_json = response.json()
         return response_json
@@ -52,9 +53,9 @@ class spotifyClient:
 def main():
     spotify_client = spotifyClient(os.getenv("SPOTIFY_AUTHORIZATION_TOKEN"),
                                     os.getenv("SPOTIFY_USER_ID"))
-    tracks = spotify_client.get_tracks('snow_tracks.json')
+    tracks = spotify_client.get_tracks('clear_sky_tracks.json')
     for index, track in enumerate(tracks):
-        print(f"{index+1}- {track}")
+        print((index+1) - track)
 
 if __name__ == '__main__':
     main()

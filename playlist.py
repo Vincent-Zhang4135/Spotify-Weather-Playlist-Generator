@@ -5,4 +5,4 @@ class Playlist:
         self.name = name
         self.id = id
     def __str__(self):
-        return f"Playlist: {self.name}"
+        return "Playlist: {self.name}"
