@@ -24,9 +24,6 @@ def weather_description_to_words(weather_description):
         words += parse_json(json_words)[:5]
     return words
 
-"""
 if __name__ == '__main__':
     # print(weather_description_to_words("clear sky"))
-    # print(weather_description_to_words("wonder"))
-    print(weather.find_descrip("Chicago"))
-"""
+    print(weather_description_to_words("wonder"))

@@ -1,7 +1,7 @@
 import random
 import spotipy
 from spotipy.oauth2 import SpotifyClientCredentials
-import weather_description_similar_words
+from weather_description_similar_words import weather_description_to_words 
 import json
 # from spotipy.oauth2 import SpotifyOAuth
 
@@ -52,13 +52,12 @@ def read_into_json(tracks, weather_description):
     fp.write(tracks_json)
     fp.close()
 
-"""
+
 if __name__ == '__main__':
-    clear_sky = weather_description_similar_words.weather_description_to_words("sky")
-    dark_clouds = weather_description_similar_words.weather_description_to_words("dark clouds")
+    clear_sky = weather_description_to_words("sky")
+    dark_clouds = weather_description_to_words("dark clouds")
     snowy_tracks = create_tracks_with_keywords(clear_sky, 10)
     dark_tracks = create_tracks_with_keywords(dark_clouds, 10)
     
     read_into_json(snowy_tracks, 'clear_sky')
     read_into_json(dark_tracks, 'dark_clouds')
-"""
