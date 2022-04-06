@@ -8,7 +8,6 @@ from track import Track
 import spotipy
 import spotipy.util as util
 from spotipy.oauth2 import SpotifyOAuth
-# import pandas as pd
 
 SPOTIPY_CLIENT_ID="0ed034a78f744265a8b997557ebd7d36"
 SPOTIPY_CLIENT_SECRET="2dc8b0b2064b493fb96720557c44afd1"
