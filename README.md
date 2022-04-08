@@ -17,12 +17,13 @@ and zipcode as the second argument of the file. Ex. python3 create_playlist.py (
 ### Backend
 * [Flask](https://flask.palletsprojects.com/en/2.1.x/)
 
+<!-- Requirements to run the code -->
 ## Requirements
 * pip
   ```sh
   pip install spotipy --upgrade
   ```
-
+<!-- Contact Info -->
 ## Contact
 
 Vincent Zhang - [Personal Website]() - vzhang00@uchicago.edu
@@ -32,3 +33,8 @@ William Zeng - [Personal Website](https://william-zeng-portfolio.netlify.app) - 
 Panthita Triamkitsawat - panthitat@uchicago.edu
 
 Project Link: [https://github.com/Vincent-Zhang4135/Spotify-Weather-Playlist-Generator.git](https://github.com/Vincent-Zhang4135/Spotify-Weather-Playlist-Generator.git)
+
+<!-- ACKNOWLEDGMENTS -->
+## Acknowledgments
+
+* [Using Spotipy/Sample Code](https://spotipy.readthedocs.io/en/2.19.0/)
