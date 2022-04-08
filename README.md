@@ -10,9 +10,10 @@ and zipcode as the second argument of the file. Ex. python3 create_playlist.py (
 ## Built With
 ### Frontend
 * [Python](https://www.python.org)
-* [HTML]
-* [CSS]
-* [JavaScript]
+* [Weather API](https://openweathermap.org/api)
+* HTML
+* CSS
+* JavaScript
 ### Backend
 * [Flask](https://flask.palletsprojects.com/en/2.1.x/)
 
