@@ -31,11 +31,11 @@ Next, we want to connect the python script to the backend of the website through
 <!-- Contact Info -->
 ## Contact
 
-[Vincent Zhang](https://vincentzhang4135.com) - [email](vzhang00@uchicago.edu)
+**[Vincent Zhang](https://vincentzhang4135.com)** - [email](vzhang00@uchicago.edu)
 
-[William Zeng](https://william-zeng-portfolio.netlify.app) - [email](william.zeng243@gmail.com)
+**[William Zeng](https://william-zeng-portfolio.netlify.app)** - [email](william.zeng243@gmail.com)
 
-Panthita Triamkitsawat - [email](panthitat@uchicago.edu)
+**Panthita Triamkitsawat** - [email](panthitat@uchicago.edu)
 
 Project Link: [Spotify Weather Playlist](https://github.com/Vincent-Zhang4135/Spotify-Weather-Playlist-Generator.git)
 
