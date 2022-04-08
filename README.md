@@ -26,11 +26,11 @@ and zipcode as the second argument of the file. Ex. python3 create_playlist.py (
 <!-- Contact Info -->
 ## Contact
 
-[Vincent Zhang](https://vincentzhang4135.com) - vzhang00@uchicago.edu
+[Vincent Zhang](https://vincentzhang4135.com) - [email](vzhang00@uchicago.edu)
 
-[William Zeng](https://william-zeng-portfolio.netlify.app) - william.zeng243@gmail.com
+[William Zeng](https://william-zeng-portfolio.netlify.app) - [email](william.zeng243@gmail.com)
 
-Panthita Triamkitsawat - panthitat@uchicago.edu
+Panthita Triamkitsawat - [email](panthitat@uchicago.edu)
 
 Project Link: [https://github.com/Vincent-Zhang4135/Spotify-Weather-Playlist-Generator.git](https://github.com/Vincent-Zhang4135/Spotify-Weather-Playlist-Generator.git)
 
