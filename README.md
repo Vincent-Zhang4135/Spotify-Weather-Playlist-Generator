@@ -26,7 +26,7 @@ and zipcode as the second argument of the file. Ex. python3 create_playlist.py (
 <!-- Contact Info -->
 ## Contact
 
-[Vincent Zhang](vincentzhang4135.com) - vzhang00@uchicago.edu
+[Vincent Zhang](https://vincentzhang4135.com) - vzhang00@uchicago.edu
 
 [William Zeng](https://william-zeng-portfolio.netlify.app) - william.zeng243@gmail.com
 
