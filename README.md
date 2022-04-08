@@ -32,9 +32,8 @@ and zipcode as the second argument of the file. Ex. python3 create_playlist.py (
 
 Panthita Triamkitsawat - [email](panthitat@uchicago.edu)
 
-Project Link: [https://github.com/Vincent-Zhang4135/Spotify-Weather-Playlist-Generator.git](https://github.com/Vincent-Zhang4135/Spotify-Weather-Playlist-Generator.git)
+Project Link: [Spotify Weather Playlist](https://github.com/Vincent-Zhang4135/Spotify-Weather-Playlist-Generator.git)
 
 <!-- ACKNOWLEDGMENTS -->
 ## Acknowledgments
-
 * [Using Spotipy/Sample Code](https://spotipy.readthedocs.io/en/2.19.0/)
