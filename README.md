@@ -4,7 +4,8 @@
 Generates a spotify playlist based on the weather at a current location.
 
 ## Usage
-For now, to run the python script, the user must enter their spotify username as the first argument
+To generate songs based off of the weather: (website in progress)
+To make an actual spotify playlist: For now, to run the python script, the user must enter their spotify username as the first argument
 and zipcode as the second argument of the file. Ex. python3 create_playlist.py (username) (zipcode).
 
 ## Built With
@@ -23,6 +24,9 @@ and zipcode as the second argument of the file. Ex. python3 create_playlist.py (
   ```sh
   pip install spotipy --upgrade
   ```
+<!-- Next Steps -->
+## Next Step
+Next, we want to connect the python script to the backend of the website through flask so that the user can generate the playlist through the designated website.
 <!-- Contact Info -->
 ## Contact
 
